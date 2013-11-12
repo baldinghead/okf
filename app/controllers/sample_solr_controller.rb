@@ -1,0 +1,2 @@
+class SampleSolrController < ApplicationController
+end
