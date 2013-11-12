@@ -46,3 +46,5 @@ gem "rspec-rails", ">= 2.6.0", :group => [:development, :test]
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'solr-ruby'
+
