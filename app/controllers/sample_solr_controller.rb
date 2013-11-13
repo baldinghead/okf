@@ -1,2 +1,0 @@
-class SampleSolrController < ApplicationController
-end
