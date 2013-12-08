@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126115335) do
+ActiveRecord::Schema.define(version: 20131126122136) do
 
   create_table "articles", force: true do |t|
-    t.string   "aiticle_id"
+    t.string   "article_id"
     t.string   "title_en_auto"
     t.string   "title_ja_auto"
     t.text     "content_en_auto"

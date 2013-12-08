@@ -1,7 +1,7 @@
 class CreateArticles < ActiveRecord::Migration
   def change
     create_table :articles do |t|
-      t.string :aiticle_id
+      t.string :article_id
       t.string :title_en_auto
       t.string :title_ja_auto
       t.text :content_en_auto

@@ -25,7 +25,7 @@ class Translation
     response = nil
 
     Net::HTTP.version_1_2
-    uri = URI.parse(MS_TRANSLATOR_ACCESSTOKEN_URL)
+    uri = URI.parse(MS_TRANSLATOR_ACCESS_TOKEN_URL)
     https = Net::HTTP.new(uri.host, uri.port)
     https.use_ssl = true
     https.verify_mode = OpenSSL::SSL::VERIFY_NONE

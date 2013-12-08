@@ -2,8 +2,9 @@ Soi::Application.routes.draw do
 
   resource :sample_solrs
   resource :sample_elasticsearches
+  resource :articles
   get "sample_elasticsearches/list"
-  get "sample_elasticsearches/:id" => "sample_elasticsearches#show"
+  get "articles/:id" => "articles#show"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

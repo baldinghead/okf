@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/mono0x/extractcontent.git
+  revision: 220ed055e8f8e22b2fb085da593881c3ec9bba12
+  specs:
+    extractcontent (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +45,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
+    hpricot (0.8.6)
     i18n (0.6.5)
     jbuilder (1.5.2)
       activesupport (>= 3.0.0)
@@ -124,6 +131,8 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  extractcontent!
+  hpricot
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.0)

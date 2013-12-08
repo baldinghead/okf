@@ -130,7 +130,7 @@
         <div id="article-list">
           <% @result_array.each do |result| %>
             <div class="article-list-title">
-              <h3><%= link_to result["title"], controller:"sample_elasticsearches", action:"show", id: result["article_id"] %></h3>
+              <h3><%= link_to result["title"], controller:"articles", action:"show", id: result["article_id"] %></h3>
               <h5 class="text-muted"><span class="glyphicon glyphicon-transfer"></span> <%= result["title_ja"] %></h5>
               <div><span class="label label-default">England : The Daily Telegraph</span> <strong><%= result["author"] %></strong> <%= result["published_date"] %></div>
             </div>
