@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,6 +24,13 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+    function search() {
+      if (window.event.keyCode==13) {
+        document.search-box.submit();
+      }
+    }
+    </script>
   </head>
 
   <body>
@@ -108,9 +114,9 @@
           </ul>
 
           <div class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
+            <form class="navbar-form navbar-right" name="search-box" action="http://localhost:3000/articles/search">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" onkeydown="search();" name="keyword">
               </div>
             </form>
           </div>
@@ -121,24 +127,37 @@
 
       <!-- Begin page content -->
       <div class="container">
-      
-        <div id="article-title">
-          <h3><%= @title_en %></h3>
-          <h5 class="text-muted"><span class="glyphicon glyphicon-transfer"></span> イングランドマネージャーロイホジソンはその出発の場所を得るためにアシュリー?コール、フランク?ランパードとジャック?ウィルシャーが必要</h5>
-          <div><span class="label label-default">England : The Daily Telegraph</span> <strong>Jason Burt</strong> 2013-11-16T22:30:54</div>
+        <div class="page-header">
+          <h1>SOI Football news crawler</h1>
         </div>
-      
-        <!-- Article -->
-        <div class="row">
-          <div id="article">
-            <div class="col-md-6">
-              <p><%= @body_en %></p>
+        <p class="lead">I is a collection of news about football from sports newspaper around the world.</p>
+        <p class="text-muted"><span class="glyphicon glyphicon-transfer"></span>世界各国のスポーツ新聞からサッカーに関するニュースを集めています。</p>
+
+        <!-- Article List -->
+        <div id="article-list">
+          <% @result_array.each do |result| %>
+            <div class="article-list-title">
+              <h3><%= link_to result["title"], result["link"] %></h3>
+              <h5 class="text-muted"><span class="glyphicon glyphicon-transfer"></span> <%= result["title_ja"] %></h5>
+              <div><span class="label label-default"><%= result["feedname"] %></span> <strong><%= result["author"] %></strong> <%= result["published_date"] %></div>
             </div>
-            <div class="col-md-6">
-              <p><%= @body_ja %></p>
-            </div>
-          </div>
+          <% end %>
         </div>
+
+        <!-- paging -->
+        <div class="text-center">
+          <ul class="pagination pagination-lg">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
+        </div>
+        <!-- paging -->
+
       </div>
     </div>
     

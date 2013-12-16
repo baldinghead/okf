@@ -3,7 +3,8 @@ Soi::Application.routes.draw do
   resource :sample_solrs
   resource :sample_elasticsearches
   resource :articles
-  get "sample_elasticsearches/list"
+  get "articles/index"
+  get "articles/search"
   get "articles/:id" => "articles#show"
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,7 +12,7 @@ Soi::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'sample_elasticsearches#list'
+  root 'articles#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
