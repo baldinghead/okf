@@ -5,6 +5,7 @@ Soi::Application.routes.draw do
   resource :articles
   get "articles/index"
   get "articles/search"
+  get "articles/search/:feedname" => "articles#search"
   get "articles/:id" => "articles#show"
 
   # The priority is based upon order of creation: first created -> highest priority.

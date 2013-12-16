@@ -27,9 +27,9 @@ class ArticlesController < ApplicationController
       when "telegraph" then
         feedname = "England : The Daily Telegraph"
       when "independent" then
-        feedname = "England : The Daily Telegraph"
+        feedname = "England : The Independent"
       when "Evening Standard" then
-        feedname = "England : The Daily Telegraph"
+        feedname = "England : Evening Standard"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
@@ -40,9 +40,20 @@ class ArticlesController < ApplicationController
   end
 
   def search
+
+    feedname = params[:feedname]
     keyword = params[:keyword]
-    logger.debug("keyword :" + keyword)
-    @request_url = @request_url + "&q=title:" + keyword
+
+    if feedname != nil then
+      logger.debug("feedname :" + feedname)
+      @request_url = @request_url + "&q=feedname:" + URI.escape(feedname)
+    end
+
+    if keyword != nil then
+      logger.debug("keyword :" + keyword)
+      @request_url = @request_url + "&q=title:" + URI.escape(keyword)
+    end
+
 
     rss_list = open(@request_url)
     json_object = JSON.load(rss_list)
@@ -62,9 +73,9 @@ class ArticlesController < ApplicationController
       when "telegraph" then
         feedname = "England : The Daily Telegraph"
       when "independent" then
-        feedname = "England : The Daily Telegraph"
+        feedname = "England : The Independent"
       when "Evening Standard" then
-        feedname = "England : The Daily Telegraph"
+        feedname = "England : Evening Standard"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
