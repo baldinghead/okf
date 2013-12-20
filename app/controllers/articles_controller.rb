@@ -68,8 +68,8 @@ class ArticlesController < ApplicationController
       case hit["fields"]["feedname"]
       when "dailymail" then
         feedname = "England : Daily Mail"
-      when "dailytelegraph" then
-        feedname = "England : The Daily Telegraph"
+      # when "dailytelegraph" then
+      #   feedname = "England : The Daily Telegraph"
       when "telegraph" then
         feedname = "England : The Daily Telegraph"
       when "independent" then
