@@ -5,7 +5,7 @@ require 'translation'
 
 class ArticlesController < ApplicationController
   def initialize
-    @request_url = "http://59.106.182.98:9200/news/page/_search?pretty&fields=feedname,link,title,description,author,publishedDate&sort=publishedDate:desc&from=0&size=10"
+    @request_url = "http://59.106.182.98:9200/news/page/_search?pretty&fields=feedname,link,title,description,author,publishedDate&sort=publishedDate:desc&from=0&size=30"
   end
 
   def index
@@ -30,6 +30,10 @@ class ArticlesController < ApplicationController
         feedname = "England : The Independent"
       when "Evening Standard" then
         feedname = "England : Evening Standard"
+      when "MARCA" then
+        feedname = "Spain : MARCA"
+      when "mundo deportivo" then
+        feedname = "Spain : El Mundo Deportivo"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
@@ -68,14 +72,18 @@ class ArticlesController < ApplicationController
       case hit["fields"]["feedname"]
       when "dailymail" then
         feedname = "England : Daily Mail"
-      # when "dailytelegraph" then
-      #   feedname = "England : The Daily Telegraph"
+      when "dailytelegraph" then
+        feedname = "England : The Daily Telegraph"
       when "telegraph" then
         feedname = "England : The Daily Telegraph"
       when "independent" then
         feedname = "England : The Independent"
       when "Evening Standard" then
         feedname = "England : Evening Standard"
+      when "MARCA" then
+        feedname = "Spain : MARCA"
+      when "mundo deportivo" then
+        feedname = "Spain : El Mundo Deportivo"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],

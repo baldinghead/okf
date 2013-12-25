@@ -48,11 +48,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost:3000/">SOI</a>
+            <a class="navbar-brand" href="/">SOI</a>
           </div>
           <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="http://localhost:3000/">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">England <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -71,8 +71,8 @@
                 <li><a href="#">All</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">News Papers</li>
-                <li><a href="#">MARCA</a></li>
-                <li><a href="#">El Mundo Deportivo</a></li>
+                <li><a href="/articles/search/MARCA">MARCA</a></li>
+                <li><a href="/articles/search/mundo%20deportivo">El Mundo Deportivo</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -138,25 +138,12 @@
             <div class="article-list-title">
               <h3><%= link_to result["title"], result["link"] %></h3>
               <h5 class="text-muted"><span class="glyphicon glyphicon-transfer"></span> <%= result["title_ja"] %></h5>
-              <div><span class="label label-default"><%= result["feedname"] %></span> <strong><%= result["author"] %></strong> <%= result["published_date"] %></div>
+              <div>
+                <span class="label label-default"><%= result["feedname"] %></span> <strong><%= result["author"] %></strong> <%= result["published_date"] %>
+                </div>
             </div>
           <% end %>
         </div>
-
-        <!-- paging -->
-        <div class="text-center">
-          <ul class="pagination pagination-lg">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&raquo;</a></li>
-          </ul>
-        </div>
-        <!-- paging -->
-
       </div>
     </div>
     
