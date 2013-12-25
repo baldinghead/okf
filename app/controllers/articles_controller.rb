@@ -34,6 +34,10 @@ class ArticlesController < ApplicationController
         feedname = "Spain : MARCA"
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
+      when "gazzetta dello sport" then
+        feedname = "Italy : La Gazzetta dello Sport"
+      when "tutto sport" then
+        feedname = "Italy : Tuttosport"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
@@ -57,6 +61,8 @@ class ArticlesController < ApplicationController
       logger.debug("keyword :" + keyword)
       @request_url = @request_url + "&q=title:" + URI.escape(keyword)
     end
+
+    logger.debug("@request_url :" + @request_url)
 
 
     rss_list = open(@request_url)
@@ -84,10 +90,15 @@ class ArticlesController < ApplicationController
         feedname = "Spain : MARCA"
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
+      when "gazzetta dello sport" then
+        feedname = "Italy : La Gazzetta dello Sport"
+      when "tutto sport" then
+        feedname = "Italy : Tuttosport"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
         "published_date" => hit["fields"]["publishedDate"], "link" => hit["fields"]["link"], "feedname" => feedname}
+      logger.debug("feedname2 :" + feedname)
       @result_array.push(result)
     end
 
