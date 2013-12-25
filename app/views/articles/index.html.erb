@@ -9,13 +9,13 @@
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
     <title>SOI</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 
     <!-- Bootstrap core CSS -->
-    <link href="/assets/bootstrap.css" rel="stylesheet">
+    <!-- <link href="/assets/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/assets/sticky-footer-navbar.css" rel="stylesheet">
-
+    <!-- <link href="/assets/sticky-footer-navbar.css" rel="stylesheet"> -->
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -158,6 +158,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="/assets/bootstrap.js"></script>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <!-- <script src="/assets/bootstrap.js"></script> -->
   </body>
 </html>
