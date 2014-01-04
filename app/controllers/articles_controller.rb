@@ -38,6 +38,8 @@ class ArticlesController < ApplicationController
         feedname = "Italy : La Gazzetta dello Sport"
       when "tutto sport" then
         feedname = "Italy : Tuttosport"
+      when "build" then
+        feedname = "Germany : Bild-Zeitung"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
@@ -54,7 +56,7 @@ class ArticlesController < ApplicationController
 
     if feedname != nil then
       logger.debug("feedname :" + feedname)
-      @request_url = @request_url + "&q=feedname:" + URI.escape(feedname)
+      @request_url = @request_url + "&q=feedname:" + URI.escape("\"" + feedname + "\"")
     end
 
     if keyword != nil then
@@ -94,6 +96,8 @@ class ArticlesController < ApplicationController
         feedname = "Italy : La Gazzetta dello Sport"
       when "tutto sport" then
         feedname = "Italy : Tuttosport"
+      when "build" then
+        feedname = "Germany : Bild-Zeitung"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
