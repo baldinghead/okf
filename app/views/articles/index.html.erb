@@ -138,7 +138,7 @@
               <h3><%= link_to result["title"], result["link"] %></h3>
               <h5 class="text-muted"><span class="glyphicon glyphicon-transfer"></span> <%= result["title_ja"] %></h5>
               <div>
-                <span class="label label-default"><%= result["feedname"] %></span> <strong><%= result["author"] %></strong> <%= result["published_date"] %>
+                <span class="<%= result["label_style"] %>"><%= result["feedname"] %></span> <strong><%= result["author"] %></strong> <%= result["published_date"] %>
                 </div>
             </div>
           <% end %>
