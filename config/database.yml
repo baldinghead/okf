@@ -19,7 +19,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql2
+  encodeing: utf8
+  database: soi
   pool: 5
-  timeout: 5000
+  username: soi
+  password: soi
+  socket: /var/lib/mysql/mysql.sock
+
