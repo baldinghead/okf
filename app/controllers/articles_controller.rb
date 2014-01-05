@@ -66,7 +66,18 @@ class ArticlesController < ApplicationController
 
     if feedname != nil then
       logger.debug("feedname :" + feedname)
-      @request_url = @request_url + "&q=feedname:" + URI.escape("\"" + feedname + "\"")
+      case feedname
+      when "england" then
+        @request_url = @request_url + "&q=feedname:" + URI.escape("dailymail dailytelegraph telegraph independent \"Evening Standard\"")      
+      when "spain" then
+        @request_url = @request_url + "&q=feedname:" + URI.escape("MARCA \"mundo deportivo\"")      
+      when "germany" then
+        @request_url = @request_url + "&q=feedname:" + URI.escape("build")      
+      when "italy" then
+        @request_url = @request_url + "&q=feedname:" + URI.escape("\"gazzetta dello sport\" \"tutto sport\"")      
+      else
+        @request_url = @request_url + "&q=feedname:" + URI.escape("\"" + feedname + "\"")      
+      end
     end
 
     if keyword != nil then
