@@ -13,7 +13,6 @@ class ArticlesController < ApplicationController
     json_object = JSON.load(rss_list)
     hits = json_object["hits"]["hits"]
 
-    hoge = Translation.new()
     @result_array = Array.new()
     hits.each do |hit|
       title_en = hit["fields"]["title"]
@@ -41,8 +40,14 @@ class ArticlesController < ApplicationController
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
         label_style = "label label-danger"
+      when "sport" then
+        feedname = "Spain : SPORT"
+        label_style = "label label-danger"
       when "gazzetta dello sport" then
         feedname = "Italy : La Gazzetta dello Sport"
+        label_style = "label label-success"
+      when "corriere dello sport" then
+        feedname = "Italy : Corriere dello Sport"
         label_style = "label label-success"
       when "tutto sport" then
         feedname = "Italy : Tuttosport"
@@ -50,6 +55,15 @@ class ArticlesController < ApplicationController
       when "build" then
         feedname = "Germany : Bild-Zeitung"
         label_style = "label label-warning"
+      when "kicker" then
+        feedname = "Germany : Kicker-Sportmagazin"
+        label_style = "label label-warning"
+      when "Lequipe" then
+        feedname = "France : L'Equip"
+        label_style = "label label-info"
+      when "Le Monde" then
+        feedname = "France : Le Monde"
+        label_style = "label label-info"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
@@ -68,15 +82,17 @@ class ArticlesController < ApplicationController
       logger.debug("feedname :" + feedname)
       case feedname
       when "england" then
-        @request_url = @request_url + "&q=feedname:" + URI.escape("dailymail dailytelegraph telegraph independent \"Evening Standard\"")      
+        @request_url = @request_url + "&q=feedname:" + URI.escape("dailymail dailytelegraph telegraph independent \"Evening Standard\"")
       when "spain" then
-        @request_url = @request_url + "&q=feedname:" + URI.escape("MARCA \"mundo deportivo\"")      
+        @request_url = @request_url + "&q=feedname:" + URI.escape("sport MARCA \"mundo deportivo\"")
       when "germany" then
-        @request_url = @request_url + "&q=feedname:" + URI.escape("build")      
+        @request_url = @request_url + "&q=feedname:" + URI.escape("build kicker")
       when "italy" then
-        @request_url = @request_url + "&q=feedname:" + URI.escape("\"gazzetta dello sport\" \"tutto sport\"")      
+        @request_url = @request_url + "&q=feedname:" + URI.escape("\"gazzetta dello sport\" \"corriere dello sport\" \"tutto sport\"")
+      when "france" then
+        @request_url = @request_url + "&q=feedname:" + URI.escape("Lequipe \"Le Monde\"")
       else
-        @request_url = @request_url + "&q=feedname:" + URI.escape("\"" + feedname + "\"")      
+        @request_url = @request_url + "&q=feedname:" + URI.escape("\"" + feedname + "\"")
       end
     end
 
@@ -92,7 +108,6 @@ class ArticlesController < ApplicationController
     json_object = JSON.load(rss_list)
     hits = json_object["hits"]["hits"]
 
-    hoge = Translation.new()
     @result_array = Array.new()
     hits.each do |hit|
       title_en = hit["fields"]["title"]
@@ -120,8 +135,14 @@ class ArticlesController < ApplicationController
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
         label_style = "label label-danger"
+      when "sport" then
+        feedname = "Spain : SPORT"
+        label_style = "label label-danger"
       when "gazzetta dello sport" then
         feedname = "Italy : La Gazzetta dello Sport"
+        label_style = "label label-success"
+      when "corriere dello sport" then
+        feedname = "Italy : Corriere dello Sport"
         label_style = "label label-success"
       when "tutto sport" then
         feedname = "Italy : Tuttosport"
@@ -129,6 +150,15 @@ class ArticlesController < ApplicationController
       when "build" then
         feedname = "Germany : Bild-Zeitung"
         label_style = "label label-warning"
+      when "kicker" then
+        feedname = "Germany : Kicker-Sportmagazin"
+        label_style = "label label-warning"
+      when "Lequipe" then
+        feedname = "France : L'Equip"
+        label_style = "label label-info"
+      when "Le Monde" then
+        feedname = "France : Le Monde"
+        label_style = "label label-info"
       end
 
       result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
