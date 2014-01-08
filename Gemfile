@@ -53,3 +53,4 @@ gem 'rsolr'
 gem 'hpricot'
 gem "extractcontent", github: "mono0x/extractcontent"
 
+gem 'idobata'

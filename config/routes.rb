@@ -3,10 +3,12 @@ Soi::Application.routes.draw do
   resource :sample_solrs
   resource :sample_elasticsearches
   resource :articles
+  resource :feedbacks
   get "articles/index"
   get "articles/search"
   get "articles/search/:feedname" => "articles#search"
   get "articles/:id" => "articles#show"
+  get "feedbacks/index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
