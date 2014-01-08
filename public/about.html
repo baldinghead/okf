@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +10,13 @@
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
     <title>OKfoot</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/articles.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/bootstrap.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/feedbacks.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/sample_elasticsearches.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/sample_solrs.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/sticky-footer-navbar.css?body=1" media="all" rel="stylesheet" />
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="/assets/bootstrap.css" rel="stylesheet">
@@ -68,7 +75,7 @@
           </div>
           <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">England <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -126,7 +133,7 @@
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/about.html">About</a></li>
+            <li class="active"><a href="/about.html">About</a></li>
             <li><a href="#" onclick="feedback();">Feedback</a></li>
           </ul>
 
@@ -137,31 +144,22 @@
               </div>
             </form>
           </div>
-          
+         
           </div><!--/.nav-collapse -->
         </div>
       </div>
 
       <!-- Begin page content -->
       <div class="container">
-        <div class="page-header">
-          <h1>OKfoot.ME</h1>
-        </div>
-        <p class="lead">Collect football news around the world.</p>
-
-        <!-- Article List -->
-        <div id="article-list">
-          <% @result_array.each do |result| %>
-            <div class="article-list-title">
-              <h3><%= link_to result["title"], result["link"] %></h3>
-              <h5 class="text-muted"><span class="glyphicon glyphicon-transfer"></span> <%= result["title_ja"] %></h5>
-              <div>
-                <span class="<%= result["label_style"] %>"><%= result["feedname"] %></span> <strong><%= result["author"] %></strong> <%= result["published_date"] %>
-                </div>
-            </div>
-          <% end %>
+        <div class="bs-docs-section">
+          <div class="page-header">
+            <h1 id="history">About</h1>
+          </div>
+          <p class="lead">We are the only office worker.We love football.</p>
+          <p>OKfoot.me is a web site which I made for we want to read the football news sports newspaper around the world.</p>
         </div>
       </div>
+     
 
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -183,19 +181,26 @@
       </div><!-- /.modal -->
 
     </div>
-    
+   
     <div id="footer">
       <div class="container">
         <p class="text-muted credit">Copyright (C) 2013 crossnote All Rights Reserved.</p>
       </div>
     </div>
 
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <script data-turbolinks-track="true" src="/assets/jquery.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/jquery_ujs.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/turbolinks.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/articles.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/feedbacks.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/sample_elasticsearches.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/sample_solrs.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/application.js?body=1"></script>
     <!-- <script src="/assets/bootstrap.js"></script> -->
   </body>
 </html>
