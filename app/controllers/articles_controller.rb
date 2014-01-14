@@ -5,11 +5,12 @@ require 'translation'
 
 class ArticlesController < ApplicationController
   def initialize
-    @request_url = "http://59.106.182.98:9200/news/page/_search?pretty&fields=feedname,link,title,description,author,publishedDate&sort=publishedDate:desc&from=0&size=30"
+    @request_url = "http://59.106.182.98:9200/news/page/_search?pretty&fields=feedname,link,title,description,author,publishedDate&sort=publishedDate:desc"
   end
 
-  def index
-    rss_list = open(@request_url)
+  def index(limit = "&from=0&size=30")
+
+    rss_list = open(@request_url + limit)
     json_object = JSON.load(rss_list)
     hits = json_object["hits"]["hits"]
 
@@ -71,6 +72,17 @@ class ArticlesController < ApplicationController
       @result_array.push(result)
     end
 
+  end
+
+  def page
+    pageno = params[:pageno].to_i
+
+    from = (pageno - 1) * 30 + 1
+    limit = "&from=" + from.to_s + "&size=30"
+
+    logger.debug("limit: " + limit);
+
+    index(limit)
   end
 
   def search

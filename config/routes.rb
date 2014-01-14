@@ -5,6 +5,7 @@ Soi::Application.routes.draw do
   resource :articles
   resource :feedbacks
   get "articles/index"
+  get "articles/page/:pageno" => "articles#page"
   get "articles/search"
   get "articles/search/:feedname" => "articles#search"
   get "articles/:id" => "articles#show"
