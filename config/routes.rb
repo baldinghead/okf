@@ -10,6 +10,7 @@ Soi::Application.routes.draw do
   get "articles/search/:feedname" => "articles#search"
   get "articles/:id" => "articles#show"
   get "feedbacks/index"
+  get "about/" => "about#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
