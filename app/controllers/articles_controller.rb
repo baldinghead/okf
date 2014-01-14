@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
       when "gazzetta dello sport" then
         feedname = "Italy : La Gazzetta dello Sport"
         label_style = "label label-success"
-      when "corriere dello sport" then
+      when "corrieredellosport" then
         feedname = "Italy : Corriere dello Sport"
         label_style = "label label-success"
       when "tutto sport" then
@@ -100,7 +100,7 @@ class ArticlesController < ApplicationController
       when "germany" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("build kicker")
       when "italy" then
-        @request_url = @request_url + "&q=feedname:" + URI.escape("\"gazzetta dello sport\" \"corriere dello sport\" \"tutto sport\"")
+        @request_url = @request_url + "&q=feedname:" + URI.escape("\"gazzetta dello sport\" corrieredellosport \"tutto sport\"")
       when "france" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("Lequipe \"Le Monde\"")
       else
@@ -153,7 +153,7 @@ class ArticlesController < ApplicationController
       when "gazzetta dello sport" then
         feedname = "Italy : La Gazzetta dello Sport"
         label_style = "label label-success"
-      when "corriere dello sport" then
+      when "corrieredellosport" then
         feedname = "Italy : Corriere dello Sport"
         label_style = "label label-success"
       when "tutto sport" then
