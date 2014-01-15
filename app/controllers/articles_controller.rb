@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
         label_style = "label label-danger"
-      when "sport" then
+      when "spainsport" then
         feedname = "Spain : SPORT"
         label_style = "label label-danger"
       when "gazzetta dello sport" then
@@ -96,7 +96,7 @@ class ArticlesController < ApplicationController
       when "england" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("dailymail dailytelegraph telegraph independent \"Evening Standard\"")
       when "spain" then
-        @request_url = @request_url + "&q=feedname:" + URI.escape("sport MARCA \"mundo deportivo\"")
+        @request_url = @request_url + "&q=feedname:" + URI.escape("spainsport MARCA \"mundo deportivo\"")
       when "germany" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("build kicker")
       when "italy" then
@@ -147,7 +147,7 @@ class ArticlesController < ApplicationController
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
         label_style = "label label-danger"
-      when "sport" then
+      when "spainsport" then
         feedname = "Spain : SPORT"
         label_style = "label label-danger"
       when "gazzetta dello sport" then
