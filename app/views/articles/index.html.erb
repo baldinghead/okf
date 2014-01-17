@@ -159,10 +159,21 @@ ga('send', 'pageview');
           <h1>OKfoot.ME</h1>
         </div>
         <p class="lead">Collect football news around the world.</p>
+        <div style="margin-left:-8px;">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- okfoot -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:728px;height:15px"
+               data-ad-client="ca-pub-9773965605362149"
+               data-ad-slot="4644386919"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
 
         <!-- Article List -->
         <div id="article-list">
-          <% @result_array.each do |result| %>
+          <% @result_array.each_with_index do |result, i| %>
             <div class="article-list-title">
               <h3><%= link_to result["title"], result["link"] %></h3>
               <h5 class="text-muted"><span class="glyphicon glyphicon-transfer"></span> <%= result["title_ja"] %></h5>
@@ -170,16 +181,20 @@ ga('send', 'pageview');
                 <span class="<%= result["label_style"] %>"><%= result["feedname"] %></span> <strong><%= result["author"] %></strong> <%= result["published_date"] %>
                 </div>
             </div>
+            <% if i == 2 || i == 5 || i == 8 then %>
+            <div class="article-list-title">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- okfoot_big -->
+              <ins class="adsbygoogle"
+                   style="display:inline-block;width:728px;height:90px"
+                   data-ad-client="ca-pub-9773965605362149"
+                   data-ad-slot="3113621318"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            <% end %>
           <% end %>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- okfoot -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:15px"
-     data-ad-client="ca-pub-9773965605362149"
-     data-ad-slot="4644386919"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
         </div>
       </div>
       <div id="page-nav" style="display: none;"><a href="/articles/page/2"></a></div>
