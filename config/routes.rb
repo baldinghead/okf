@@ -11,6 +11,8 @@ Soi::Application.routes.draw do
   get "articles/:id" => "articles#show"
   get "feedbacks/index"
   get "about/" => "about#index"
+  get "deploy/" => "deploy#index"
+  post "deploy/" => "deploy#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
