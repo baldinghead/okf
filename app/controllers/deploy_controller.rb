@@ -10,7 +10,7 @@ class DeployController < ApplicationController
     logger.info(params['commits'][0])
     author = params['commits'][0]['author']
     branch = params['commits'][0]['branch']
-    message = author + '  ' + branch + "<br />" + params['commits'][0]['message']
+    message = "author= " + author + '  branch=' + branch + "<br />" + params['commits'][0]['message']
     
     logger.info("message=" + message)
     
