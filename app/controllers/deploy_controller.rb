@@ -9,7 +9,9 @@ class DeployController < ApplicationController
     #デプロイシェルを実行
     system(scriptPath)
     
-    logger.info(params)
+    logger.info("params=" + params)
+    requestObj = ActiveSupport::JSON.decode(params)
+    
     logger.info(params['payload']['commits'][0])
     author = params['payload']['commits'][0]['author']
     branch = params['payload']['commits'][0]['branch']
