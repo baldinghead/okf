@@ -7,10 +7,10 @@ class DeployController < ApplicationController
     here = File.dirname(__FILE__)
     scriptPath = here + "/../../build.sh"
     
-    logger.info(params['commits'][0])
-    author = params['commits'][0]['author']
-    branch = params['commits'][0]['branch']
-    message = "author= " + author + '  branch=' + branch + "<br />" + params['commits'][0]['message']
+    logger.info(params['payload']['commits'][0])
+    author = params['payload']['commits'][0]['author']
+    branch = params['payload']['commits'][0]['branch']
+    message = "author= " + author + '  branch=' + branch + "<br />" + params['payload']['commits'][0]['message']
     
     logger.info("message=" + message)
     
