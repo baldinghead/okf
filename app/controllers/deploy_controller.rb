@@ -7,6 +7,7 @@ class DeployController < ApplicationController
     here = File.dirname(__FILE__)
     scriptPath = here + "/../../build.sh"
     
+    logger.info(params)
     logger.info(params['payload']['commits'][0])
     author = params['payload']['commits'][0]['author']
     branch = params['payload']['commits'][0]['branch']
