@@ -24,6 +24,7 @@ class DeployController < ApplicationController
     logger.info(curlCmd)
     system(curlCmd)
     
+    
     render :nothing => true
   end
   
