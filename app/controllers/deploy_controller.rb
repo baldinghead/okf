@@ -10,7 +10,6 @@ class DeployController < ApplicationController
     logger.info(scriptPath)
     system(scriptPath)
     
-    
     render :nothing => true
   end
   
