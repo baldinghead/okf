@@ -6,6 +6,8 @@ class DeployController < ApplicationController
   def index
     here = File.dirname(__FILE__)
     scriptPath = here + "/../../build.sh"
+    #デプロイシェルを実行
+    system(scriptPath)
     
     logger.info(params)
     logger.info(params['payload']['commits'][0])
@@ -19,8 +21,6 @@ class DeployController < ApplicationController
     logger.info(curlCmd)
     system(curlCmd)
     #logger.info(params)
-    #デプロイシェルを実行
-    system(scriptPath)
     
     render :nothing => true
   end
