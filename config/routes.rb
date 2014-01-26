@@ -7,7 +7,7 @@ Soi::Application.routes.draw do
   get "articles/index"
   get "articles/page/:pageno" => "articles#page"
   get "articles/search"
-  get "articles/search/:feedname" => "articles#search"
+  get "articles/search/:search_feedname" => "articles#search"
   get "articles/:id" => "articles#show"
   get "feedbacks/index"
   get "about/" => "about#index"
