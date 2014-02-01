@@ -8,7 +8,6 @@ class DeployController < ApplicationController
     scriptPath = here + "/../../build.sh"
     #デプロイシェルを実行
     system(scriptPath)
-    
     #JSONのパース
     paramObj = ActiveSupport::JSON.decode(params["payload"])
     logger.info(paramObj['commits'])
