@@ -25,7 +25,6 @@ class DeployController < ApplicationController
         line += "<br />" + commit['message']
       end
       line += "<br />"
-      
       message += line
     end 
 
