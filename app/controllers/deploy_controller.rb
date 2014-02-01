@@ -8,18 +8,29 @@ class DeployController < ApplicationController
     scriptPath = here + "/../../build.sh"
     #デプロイシェルを実行
     system(scriptPath)
-    
     #JSONのパース
     paramObj = ActiveSupport::JSON.decode(params["payload"])
-
-    author = paramObj['commits'][0]['author']
-    branch = paramObj['commits'][0]['branch']
-    message = "author= " + author + '  branch=' + branch + "<br />" + paramObj['commits'][0]['message']
+    logger.info(paramObj['commits'])
+    message=""
+    for commit in paramObj['commits'] do
+      line=""
+      
+      if commit['author'] then
+        line += "author= " + commit['author']
+      end
+      if commit['branch'] then
+        line += "branch= " + commit['branch']
+      end
+      if commit['message'] then
+        line += "<br />" + commit['message']
+      end
+      line += "<br />"
+      message += line
+    end 
 
     curlCmd = 'curl --data-urlencode "source=' + message + '" -d format=html https://idobata.io/hook/4a11714e-6b1a-41fb-9cd3-3f533ce70e92'
     logger.info(curlCmd)
     system(curlCmd)
-
 
     render :nothing => true
   end
