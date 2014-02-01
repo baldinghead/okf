@@ -14,6 +14,8 @@ class DeployController < ApplicationController
 
     author = paramObj['commits'][0]['author']
     branch = paramObj['commits'][0]['branch']
+    
+    logger.info(paramObj['commits'])
     message = "author= " + author + '  branch=' + branch + "<br />" + paramObj['commits'][0]['message']
 
     curlCmd = 'curl --data-urlencode "source=' + message + '" -d format=html https://idobata.io/hook/4a11714e-6b1a-41fb-9cd3-3f533ce70e92'
