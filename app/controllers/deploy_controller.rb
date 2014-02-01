@@ -11,7 +11,9 @@ class DeployController < ApplicationController
     #JSONのパース
     paramObj = ActiveSupport::JSON.decode(params["payload"])
     logger.info(paramObj['commits'])
+    message=""
     for commit in paramObj['commits'] do
+      line=""
       
       if commit['author'] then
         line += "author= " + commit['author']
