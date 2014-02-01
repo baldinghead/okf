@@ -11,7 +11,6 @@ class DeployController < ApplicationController
     
     #JSONのパース
     paramObj = ActiveSupport::JSON.decode(params["payload"])
-
     author = paramObj['commits'][0]['author']
     branch = paramObj['commits'][0]['branch']
     
