@@ -20,6 +20,7 @@ Soi::Application.routes.draw do
   # root 'welcome#index'
   root 'articles#index'
 
+  get "*not_found" => "application#render_404"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
