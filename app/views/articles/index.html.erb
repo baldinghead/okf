@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="海外サッカーニュースを収集する日本最大級のサイトです。現在はイギリス、スペイン、ドイツ、イタリア、フランスのニュースを収集しています。今後は南米やアジア圏も視野にいれていきたいです。">
-    <meta name="keywords" content="スポーツ 新聞, 海外 サッカー, サッカー ニュース" />
+    <meta name="description" content="<%= @meta_description_value %>">
+    <meta name="keywords" content="スポーツ新聞, 海外サッカー, ニュース, 翻訳" />
     <meta name="author" content="">
     <meta property="og:title" content="OKfoot.ME" />
     <meta property="og:type" content="website" />
@@ -13,7 +13,7 @@
     <meta property="og:image" content="http://okfoot.me/okfootaicon.png" />
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    <title>海外サッカーニュースならOKfoot</title>
+    <title><%= @title_tag_value %></title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 
     <!-- Bootstrap core CSS -->

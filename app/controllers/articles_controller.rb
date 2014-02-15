@@ -8,6 +8,8 @@ class ArticlesController < ApplicationController
     @request_url = "http://59.106.182.98:9200/news/page/_search?pretty&fields=feedname,link,title,description,author,publishedDate&sort=publishedDate:desc"
     @search_feedname
     @keyword
+    @title_tag_value = "海外サッカーニュースならOKfoot"
+    @meta_description_value = "海外サッカーニュースを収集する日本最大級のサイトです。現在はイギリス、スペイン、ドイツ、イタリア、フランスのニュースを収集しています。今後は南米やアジア圏も視野にいれていきたいです。"
   end
 
   def index(limit = "&from=0&size=30")
@@ -189,22 +191,36 @@ class ArticlesController < ApplicationController
       case @search_feedname
       when "england" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("dailymail dailytelegraph telegraph independent \"Evening Standard\"")
+        @title_tag_value = "EnglandのサッカーニュースならOKfoot"
+        @meta_description_value = "海外サッカーニュースを収集する日本最大級のサイトです。このページではEnglandのサッカーニュースを収集しています。"
       when "spain" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("spainsport MARCA \"mundo deportivo\"")
+        @title_tag_value = "SpainのサッカーニュースならOKfoot"
+        @meta_description_value = "海外サッカーニュースを収集する日本最大級のサイトです。このページではSpainのサッカーニュースを収集しています。"
       when "germany" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("build kicker")
+        @title_tag_value = "GermanyのサッカーニュースならOKfoot"
+        @meta_description_value = "海外サッカーニュースを収集する日本最大級のサイトです。このページではGermanyのサッカーニュースを収集しています。"
       when "italy" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("\"gazzetta dello sport\" corrieredellosport \"tutto sport\"")
+        @title_tag_value = "ItalyのサッカーニュースならOKfoot"
+        @meta_description_value = "海外サッカーニュースを収集する日本最大級のサイトです。このページではItalyのサッカーニュースを収集しています。"
       when "france" then
         @request_url = @request_url + "&q=feedname:" + URI.escape("Lequipe \"Le Monde\"")
+        @title_tag_value = "FranceのサッカーニュースならOKfoot"
+        @meta_description_value = "海外サッカーニュースを収集する日本最大級のサイトです。このページではFranceのサッカーニュースを収集しています。"
       else
         @request_url = @request_url + "&q=feedname:" + URI.escape("\"" + @search_feedname + "\"")
+        @title_tag_value = @search_feedname + "のサッカーニュースならOKfoot"
+        @meta_description_value = "海外サッカーニュースを収集する日本最大級のサイトです。このページでは" + @search_feedname + "のサッカーニュースを収集しています。"
       end
     end
 
     if @keyword != nil && @keyword != "" then
       logger.debug("keyword :" + @keyword)
       @request_url = @request_url + "&q=title:" + URI.escape(@keyword)
+      @title_tag_value = "OKfootでの検索結果（検索ワード：" + @keyword + "）"
+      @meta_description_value = "海外サッカーニュースを収集する日本最大級のサイトです。このページでは検索結果を表示しています。"
     end
 
     logger.debug("@request_url :" + @request_url)
