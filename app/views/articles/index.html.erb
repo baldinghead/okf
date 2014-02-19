@@ -164,7 +164,7 @@ ga('send', 'pageview');
           <h1><%= image_tag 'okfootlogo.png', :alt => "海外サッカーニュースならOKfoot", :class => "img-responsive" %></h1>
         </div>
         <p class="lead">Collect football news around the world.</p>
-        <p>各国の主要なスポーツ誌のサッカーニュースをまとめて配信しています。また、タイトルを機械翻訳して表示しています。ヘンテコな訳もそのままお楽しみください。</p>
+        <p>メジャースポーツ誌の海外サッカーニュースを収集して配信しています。また、タイトルを機械翻訳して表示しています。ヘンテコな訳もそのままお楽しみください。</p>
         <div style="margin-left:-3px;margin-top:22px;">
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- okfoot -->
@@ -182,7 +182,11 @@ ga('send', 'pageview');
           <% @result_array.each_with_index do |result, i| %>
             <div class="article-list-title">
               <h3><%= link_to result["title"], result["link"],:target=>["_blank"] %></h3>
-              <h5 class="text-muted"><span class="glyphicon glyphicon-transfer"></span> <%= result["title_ja"] %></h5>
+              <div class="<%= result["desc_style"] %>">
+                <h5><span class="glyphicon glyphicon-transfer"> <%= result["title_ja"] %></h5>
+                <p class="text-muted"><small><%= result["japaneseDesc"] %></small></p>
+              </div>
+
               <div>
                 <span class="<%= result["label_style"] %>"><%= result["feedname"] %></span> <strong><%= result["author"] %></strong> <%= result["published_date"] %>
                 </div>

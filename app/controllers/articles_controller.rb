@@ -5,7 +5,7 @@ require 'translation'
 
 class ArticlesController < ApplicationController
   def initialize
-    @request_url = "http://59.106.182.98:9200/news/page/_search?pretty&fields=feedname,link,title,description,author,publishedDate&sort=publishedDate:desc"
+    @request_url = "http://59.106.182.98:9200/news/page/_search?pretty&fields=feedname,link,title,description,japaneseDesc,author,publishedDate&sort=publishedDate:desc"
     @search_feedname
     @keyword
     @title_tag_value = "海外サッカーニュースならOKfoot"
@@ -27,52 +27,70 @@ class ArticlesController < ApplicationController
       when "dailymail" then
         feedname = "England : Daily Mail"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "dailytelegraph" then
         feedname = "England : The Daily Telegraph"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "telegraph" then
         feedname = "England : The Daily Telegraph"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "independent" then
         feedname = "England : The Independent"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "Evening Standard" then
         feedname = "England : Evening Standard"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "MARCA" then
         feedname = "Spain : MARCA"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "spainsport" then
         feedname = "Spain : SPORT"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "gazzetta dello sport" then
         feedname = "Italy : La Gazzetta dello Sport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "corrieredellosport" then
         feedname = "Italy : Corriere dello Sport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "tutto sport" then
         feedname = "Italy : Tuttosport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "build" then
         feedname = "Germany : Bild-Zeitung"
         label_style = "label label-warning"
+        desc_style = "bs-callout bs-callout-warning"
       when "kicker" then
         feedname = "Germany : Kicker-Sportmagazin"
         label_style = "label label-warning"
+        desc_style = "bs-callout bs-callout-warning"
       when "Lequipe" then
         feedname = "France : L'Equip"
         label_style = "label label-info"
+        desc_style = "bs-callout bs-callout-info"
       when "Le Monde" then
         feedname = "France : Le Monde"
         label_style = "label label-info"
+        desc_style = "bs-callout bs-callout-info"
       end
 
-      result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
-        "published_date" => hit["fields"]["publishedDate"], "link" => hit["fields"]["link"], "feedname" => feedname, "label_style" => label_style}
+      result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja,
+        "author" => hit["fields"]["author"],
+        "published_date" => hit["fields"]["publishedDate"],
+        "link" => hit["fields"]["link"], "feedname" => feedname,
+        "label_style" => label_style, "japaneseDesc" => hit["fields"]["japaneseDesc"], "desc_style" => desc_style}
       @result_array.push(result)
     end
 
@@ -128,53 +146,71 @@ class ArticlesController < ApplicationController
       when "dailymail" then
         feedname = "England : Daily Mail"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "dailytelegraph" then
         feedname = "England : The Daily Telegraph"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "telegraph" then
         feedname = "England : The Daily Telegraph"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "independent" then
         feedname = "England : The Independent"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "Evening Standard" then
         feedname = "England : Evening Standard"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "MARCA" then
         feedname = "Spain : MARCA"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "spainsport" then
         feedname = "Spain : SPORT"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "gazzetta dello sport" then
         feedname = "Italy : La Gazzetta dello Sport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "corrieredellosport" then
         feedname = "Italy : Corriere dello Sport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "tutto sport" then
         feedname = "Italy : Tuttosport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "build" then
         feedname = "Germany : Bild-Zeitung"
         label_style = "label label-warning"
+        desc_style = "bs-callout bs-callout-warning"
       when "kicker" then
         feedname = "Germany : Kicker-Sportmagazin"
         label_style = "label label-warning"
+        desc_style = "bs-callout bs-callout-warning"
       when "Lequipe" then
         feedname = "France : L'Equip"
         label_style = "label label-info"
+        desc_style = "bs-callout bs-callout-info"
       when "Le Monde" then
         feedname = "France : Le Monde"
         label_style = "label label-info"
+        desc_style = "bs-callout bs-callout-info"
       end
 
-      result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
-        "published_date" => hit["fields"]["publishedDate"], "link" => hit["fields"]["link"], "feedname" => feedname, "label_style" => label_style}
-      logger.debug("feedname2 :" + feedname)
+
+      result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja,
+        "author" => hit["fields"]["author"],
+        "published_date" => hit["fields"]["publishedDate"],
+        "link" => hit["fields"]["link"], "feedname" => feedname,
+        "label_style" => label_style, "japaneseDesc" => hit["fields"]["japaneseDesc"], "desc_style" => desc_style}
       @result_array.push(result)
     end
 
@@ -239,52 +275,71 @@ class ArticlesController < ApplicationController
       when "dailymail" then
         feedname = "England : Daily Mail"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "dailytelegraph" then
         feedname = "England : The Daily Telegraph"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "telegraph" then
         feedname = "England : The Daily Telegraph"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "independent" then
         feedname = "England : The Independent"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "Evening Standard" then
         feedname = "England : Evening Standard"
         label_style = "label label-default"
+        desc_style = "bs-callout bs-callout-default"
       when "MARCA" then
         feedname = "Spain : MARCA"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "mundo deportivo" then
         feedname = "Spain : El Mundo Deportivo"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "spainsport" then
         feedname = "Spain : SPORT"
         label_style = "label label-danger"
+        desc_style = "bs-callout bs-callout-danger"
       when "gazzetta dello sport" then
         feedname = "Italy : La Gazzetta dello Sport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "corrieredellosport" then
         feedname = "Italy : Corriere dello Sport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "tutto sport" then
         feedname = "Italy : Tuttosport"
         label_style = "label label-success"
+        desc_style = "bs-callout bs-callout-success"
       when "build" then
         feedname = "Germany : Bild-Zeitung"
         label_style = "label label-warning"
+        desc_style = "bs-callout bs-callout-warning"
       when "kicker" then
         feedname = "Germany : Kicker-Sportmagazin"
         label_style = "label label-warning"
+        desc_style = "bs-callout bs-callout-warning"
       when "Lequipe" then
         feedname = "France : L'Equip"
         label_style = "label label-info"
+        desc_style = "bs-callout bs-callout-info"
       when "Le Monde" then
         feedname = "France : Le Monde"
         label_style = "label label-info"
+        desc_style = "bs-callout bs-callout-info"
       end
 
-      result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja, "author" => hit["fields"]["author"],
-        "published_date" => hit["fields"]["publishedDate"], "link" => hit["fields"]["link"], "feedname" => feedname, "label_style" => label_style}
+
+      result = {"article_id" => hit["_id"], "title" => title_en, "title_ja" => title_ja,
+        "author" => hit["fields"]["author"],
+        "published_date" => hit["fields"]["publishedDate"],
+        "link" => hit["fields"]["link"], "feedname" => feedname,
+        "label_style" => label_style, "japaneseDesc" => hit["fields"]["japaneseDesc"], "desc_style" => desc_style}
       logger.debug("feedname2 :" + feedname)
       @result_array.push(result)
     end
