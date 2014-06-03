@@ -5,7 +5,7 @@ require 'translation'
 
 class ArticlesController < ApplicationController
   def initialize
-    @request_url = "http://59.106.182.98:9200/news/page/_search?pre7tty&fields=feedname,link,title,description,japaneseDesc,author,publishedDate&sort=publishedDate:desc"
+    @request_url = "http://54.199.172.167:9200/news/page/_search?pretty&fields=feedname,link,title,description,japaneseDesc,author,publishedDate&sort=publishedDate:desc"
     @search_feedname
     @keyword
     @title_tag_value = "海外サッカーニュースならOKfoot"
@@ -359,7 +359,7 @@ class ArticlesController < ApplicationController
       logger.debug("article not found.")
 
       # elasticsearchからデータを取得
-      url = "http://59.106.182.98:9200/news/page/" + article_id + "?pretty&fields=link,title,description&sort=publishedDate"
+      url = "http://54.199.172.16:9200/news/page/" + article_id + "?pretty&fields=link,title,description&sort=publishedDate"
       article = open(url)
       json_object = JSON.load(article)
       link = json_object["fields"]["link"]
